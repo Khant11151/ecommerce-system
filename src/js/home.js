@@ -1,14 +1,14 @@
 import { products } from './products.js';
 const categories = [...new Set(products.map((p) => p.category))].map((category) => ({
-    name: category,
-    count: products.filter((p) => p.category === category).length,
+  name: category,
+  count: products.filter((p) => p.category === category).length,
 }));
 const categoryContainer = document.getElementById('category-container');
 
 categories.forEach((category) => {
 
-    categoryContainer.innerHTML +=
-        ` <a
+  categoryContainer.innerHTML +=
+    ` <a
             href="#beauty"
             class="group flex aspect-square items-center justify-center
                   rounded-2xl border border-gray-200 bg-gray-50 p-6
@@ -29,8 +29,8 @@ categories.forEach((category) => {
 const productContainer = document.getElementById('product-container');
 
 products.forEach((p) => {
-    productContainer.innerHTML +=
-        ` <div class="bg-white rounded-2xl shadow-md overflow-hidden
+  productContainer.innerHTML +=
+    ` <div class="bg-white rounded-2xl shadow-md overflow-hidden
                       transition-all duration-300 hover:shadow-lg"
             >
               <img src="${p.image}" alt="${p.title}"
@@ -43,9 +43,12 @@ products.forEach((p) => {
                 <h3 class="text-lg font-semibold text-gray-900">
                   ${p.title}
                 </h3>
-                <p class="text-xl font-bold text-blue-600 mt-3">
+              <p class="text-xl font-bold text-blue-600 mt-3">
                   $${p.price.toFixed(2)}
                 </p>
               </div>
-            </div>`;
+              <div class="w-full flex justify-center p-4">
+               <button class="w-1/2 bg-blue-600 text-white p-2 rounded-md">Add To Cart</button>
+              </div>
+          </div>`;
 });
